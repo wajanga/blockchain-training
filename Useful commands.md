@@ -7,9 +7,15 @@
 - docker run -d -p 8080:80 -e APP_NODE_URL=http://localhost:8545 --name eth-explorer alethio/ethereum-lite-explorer
 - docker run -it -p 8545:8545 -p 30303:30303 -p 30303:30303/udp --name node1 eth-node
 
-## Create and Connect to a netwpork
+## Create and Connect to a network
 - docker network create private-blockchain-net
 - docker network connect private-blockchain-net <container-name>
+
+## Import and export images
+-  docker save image_name > image_name.tar
+-  docker load < image_name.tar
+-  docker commit container-id new-image-name
+-  docker cp container-name:file-path path-on-computer
 
 # Geth Commands
 ## Initialize nodes
