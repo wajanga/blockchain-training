@@ -1,27 +1,29 @@
 # Docker Commands
-
-- docker run -d --name ethereum-node \
-    -v $HOME/.ethereum:/root \
-    -p 8545:8545 -p 30303:30303 \
-    ethereum/client-go:v1.7.3 --fast --cache=512
-
-- docker run -it -p 8545:8545 --name node1 eth-node
-- docker run -it -p 8545:8545 -p 30303:30303 -p 30303:30303/udp --name node1 eth-node
+## Starting containers
+- docker run --net private-blockchain-net -it --name bootnode eth-node
+- docker run --net private-blockchain-net -it -p 8545:8545 --name node1 eth-node
+- docker run --net private-blockchain-net -it --name node2 eth-node
 - docker run -d -p 3000:3000 -e WS_SECRET=<YOUR_SECRET> kamael/eth-netstats
 - docker run -d -p 8080:80 -e APP_NODE_URL=http://localhost:8545 --name eth-explorer alethio/ethereum-lite-explorer
-- docker run --net private-blockchain-net -it -p 8545:8545 --name node1 eth-node
+- docker run -it -p 8545:8545 -p 30303:30303 -p 30303:30303/udp --name node1 eth-node
 
+## Create and Connect to a netwpork
 - docker network create private-blockchain-net
 - docker network connect private-blockchain-net <container-name>
 
 # Geth Commands
-## Client
-- geth --http --http.api personal,eth,net,web3
-- geth --datadir chain_data --http --nodiscover console --allow-insecure-unlock --ethstats node_pow:12345678@host.docker.internal:3000
-geth --datadir chain_data --http --http.port 8549 --nodiscover console
+## Initialize nodes
 - geth --datadir chain_data --http --http.addr "0.0.0.0" --http.corsdomain '*' --bootnodes enode://07ca98251825a0ca1cc43ca13e97cfcaebf4e8eb3c40903810f521c7b819d16df2b1178953dfd6f4d6f30e646d99cb87027716348c1fca1e09b61888fb777d94@host.docker.internal:30301 console
-- geth --datadir chain_data --port 30304 --http --http.port 8546 --http.addr "0.0.0.0" --http.corsdomain '*' --bootnodes enode://07ca98251825a0ca1cc43ca13e97cfcaebf4e8eb3c40903810f521c7b819d16df2b1178953dfd6f4d6f30e646d99cb87027716348c1fca1e09b61888fb777d94@host.docker.internal:30301 console
+- geth --datadir chain_data --http --http.addr "0.0.0.0" --http.corsdomain '*' --bootnodes enode://c7335e27083a7e4b3eab35b5c3c8b8d1c98516a0a100a9a41c6b46fdaa9398797dc07dab220267c72c710f73ad6ebdf019b5cd6bd526bcb80f72f36f22eedf40@bootnode:30301 --allow-insecure-unlock console
+- Options
+  - --http.api personal,eth,net,web3
+  - --nodiscover
+  - --ethstats node_pow:12345678@host.docker.internal:3000
+  - --port 30304
+  - --http.port 8546
 
+## Create new account
+- geth account new --datadir chain_data --password /tmp/password
 ## Accounts and Balances
 - personal.listAccounts
 - eth.accounts
