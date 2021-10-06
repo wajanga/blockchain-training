@@ -2,6 +2,9 @@
 
 ## Initialize the private network
     - geth --datadir private_chain_data init genesis_private.json
+### Additional Options
+    - --bootnodes enode://c7335e27083a7e4b3eab35b5c3c8b8d1c98516a0a100a9a41c6b46fdaa9398797dc07dab220267c72c710f73ad6ebdf019b5cd6bd526bcb80f72f36f22eedf40@bootnode:30301
+    - --ethstats <name>:12345678@<ip-address>:3000
 ## Start the node
     - geth --console --datadir private_chain_data
 ## Geth Console
