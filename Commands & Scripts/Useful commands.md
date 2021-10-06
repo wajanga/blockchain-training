@@ -36,6 +36,7 @@
 - eth.getBalance(personal.listAccounts[0])
 - web3.eth.getBalance(personal.listAccounts[1])
 - web3.fromWei(web3.eth.getBalance(personal.listAccounts[1]), "Ether")
+- miner.setEtherbase(eth.accounts[0])
 
 ## Transactions
 - web3.personal.unlockAccount(web3.personal.listAccounts[0], null, 60)

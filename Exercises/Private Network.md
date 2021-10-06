@@ -21,6 +21,7 @@
     - eth.getBalance(eth.accounts[0])
 ### Mining
     - miner.start(1)
+    - eth.hashrate
     - miner.stop()
     - eth.blockNumber
     - eth.getBalance(eth.accounts[0])
