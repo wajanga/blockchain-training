@@ -29,7 +29,7 @@
 ### Transactions
     - eth.getBlock(0).transactions.length
     - eth.getBlock(7)
-    - var txHash = eth.sendTransaction({ from: eth.accounts[0], to: eth.accounts[1], value: 1000)
+    - var txHash = eth.sendTransaction({ from: eth.accounts[0], to: eth.accounts[1], value: 1000})
     - personal.unlockAccount(eth.accounts[0])
     - eth.getTransaction(txHash)
     - txpool.content.pending
