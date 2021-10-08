@@ -1,0 +1,1 @@
+geth --datadir chain_data --bootnodes enode://450aca52bf9cd769c42a36ca459b582a7df870cf19616e8b3209603315987b2013226b32a7343f54d9b5a005d0de0c3f45dcf5ecd28be2114558bee81a90d45d@161.35.71.138:30301 --networkid 34754 --ethstats aron-node:12345678@161.35.71.138:3000 console
