@@ -8,7 +8,7 @@
 
 2. Launch Geth
 
-        geth --datadir . –mine console
+        geth --datadir . --mine console
 
 1. Create contract interface specification
         
