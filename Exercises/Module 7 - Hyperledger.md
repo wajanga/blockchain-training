@@ -107,3 +107,17 @@ You can now query the asset-transfer (basic) chaincode running on peer0.org2.exa
 When you are finished using the test network, you can bring down the network with the following command:
 
     ./network.sh down
+
+## Troubleshooting
+### Installing Prerequisites
+#### 1. Run the following commands in Powershell to convert to WSL 2
+    
+    wsl.exe --set-version Ubuntu-20.04 2
+    wsl.exe --set-default-version 2
+#### 2. Install Git and cURL in Ubuntu
+    sudo apt update
+    sudo apt install git
+    sudo apt install curl
+
+#### 3. Install Go in Ubuntu
+- Follow instruction from here https://linuxize.com/post/how-to-install-go-on-ubuntu-20-04/
