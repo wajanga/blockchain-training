@@ -48,9 +48,9 @@ After you have used the network.sh to create a channel, you can start a chaincod
     export FABRIC_CFG_PATH=$PWD/../config/
 
     # Windows
-    $Env:FABRIC_CFG_PATH="1.3.0"
     $Env:PATH="${PWD}\..\bin:$PATH"
     $Env:FABRIC_CFG_PATH="$PWD\..\config\"
+    $Env:COMPOSE_CONVERT_WINDOWS_PATHS=1
 
 #### Set the environment variables
     # Linux, Mac
