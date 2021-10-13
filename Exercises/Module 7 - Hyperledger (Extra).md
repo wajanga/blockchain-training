@@ -83,3 +83,6 @@ Change the order of imports in /views/Chaincode.js
 
     import axios from 'axios';
     import ChaincodeTransactions from '@/components/ChaincodeTransactions.vue';
+
+### 3. Additional Tutorials
+https://dzone.com/articles/deploy-a-hyperledger-fabric-v2-web-app-using-the-n
